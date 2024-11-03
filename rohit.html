@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Wiki</title>
+    <link rel="icon" href="./assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Orbitron:wght@400..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sixtyfour+Convergence&display=swap');
+body{
+     font-family: Arial, Helvetica, sans-serif;
+     background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/10/high-resolution-space-image-02.jpg");
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-color: lightblue;
+     height:100vh;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+html, body {
+    height: 100vh;
+    background-color: #eeeeea;
+}
+.container {
+    height: 100%;
+    background-image: url('./assets/spacebg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+nav ul {
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    list-style: none;
+}
+nav li a {
+    text-decoration: none;
+    color: white;
+    padding-right: 5em;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav li a:hover {
+    color: #00ccff; 
+    text-shadow: 0 2px 10px rgba(0, 204, 255, 0.7), 0 4px 20px rgba(0, 204, 255, 0.5), 0 6px 30px rgba(0, 204, 255, 0.3);  
+}
+
+.content {
+    /* border: 2px solid red; */
+    height: calc(100% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10em;
+    position: relative;
+}
+.text-part{
+    position: absolute;
+    top: 3em;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+.text-part h1 {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.container-cards {
+    /* border: 2px solid white; */
+    display: flex;
+    gap: 10px;
+}
+.card {
+    width: 80px;
+    height: 370px;
+    border-radius: 0.75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+    box-shadow: 0px 20px 30px -5px rgba(0,0,0,0.8);
+}
+.card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: 0.3s;
+    transition: all 0.3s ease;
+}
+.description p {
+    color: #b0b0ba;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    padding-top: 5px;
+}
+.description h4 {
+    text-transform: uppercase;
+}
+input[type="radio"] {
+    display: none;
+}
+input:checked + label {
+    width: 600px;
+}
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+label[for="c1"] {
+    background-image: url('https://www.worldatlas.com/r/w1200/upload/e8/9d/7c/shutterstock-1055322356.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c2"] {
+    background-image: url('https://starwalk.space/gallery/images/amazing-planet-venus/1920x1080.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c3"] {
+    background-image: url('https://cdn.mos.cms.futurecdn.net/xcLR5HMU2kxskdAy3ZVuTf.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c4"] {
+    background-image: url('https://cdn.mos.cms.futurecdn.net/nWAycncKhc2KNEfdeoXFzb.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c5"] {
+    background-image: url('https://starwalk.space/gallery/images/jupiter-guide/1140x641.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c6"] {
+    background-image: url('https://img.freepik.com/premium-photo/ringed-planet-saturn-shining-bright-against-black-void-space_168058-1107.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+label[for="c7"] {
+    background-image: url('https://png.pngtree.com/background/20231017/original/pngtree-a-3d-rendering-of-uranus-in-the-vastness-of-space-picture-image_5595065.jpg');
+    animation: float 3s ease-in-out infinite;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    backdrop-filter: blur(10px);
+}
+
+.popup-content {
+    background-color: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 500px;
+    color: #f0f0f0;
+}
+
+.close {
+    color: #ffcc00;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffa500;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #ffcc00;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4fa3f7;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3a8bcf;
+}
+</style>
+<body>
+    <div class="container">
+     ><nav id="nav">
+        <ul>
+             <li><a style="text-decoration: none; color: #fff; font-size: 18px; background-color: crimson; padding: 10px;border-radius: 4px;" href="project.html">Back to Home</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="text-part">
+                <h1>"Explore the Cosmos, One Fact at a Time – Dive into Space verse!"</h1>
+            </div>
+            <div class="wrapper">
+                <div class="container-cards">
+                <input type="radio" name="slide" id="c1" checked>
+                <label for="c1" class="card">
+            <div class="row">
+            <div class="icon">1</div>
+            <div class="description">
+                <h4><a href="link1.html">Mercury</a></h4>
+                <p>The smallest planet and closest to the Sun, Mercury has extreme temperature fluctuations and a surface covered in craters.</p>
+            </div>
+            </div>
+                    </label>
+                    <input type="radio" name="slide" id="c2">
+                    <label for="c2" class="card">
+                        <div class="row">
+                            <div class="icon">2</div>
+                            <div class="description">
+                                <h4><a href="link2.html">Venus</a></h4>
+                                <p>Often called Earth’s "sister planet," Venus has a thick atmosphere of carbon dioxide and sulfuric acid clouds, making it the hottest planet.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c3">
+                    <label for="c3" class="card">
+                        <div class="row">
+                            <div class="icon">3</div>
+                            <div class="description">
+                                <h4><a href="link3.html">Earth</a></h4>
+                                <p>The only planet known to support life, Earth has a diverse climate and abundant water covering about 71% of its surface.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c4">
+                    <label for="c4" class="card">
+                        <div class="row">
+                            <div class="icon">4</div>
+                            <div class="description">
+                                <h4><a href="link4.html">Mars</a></h4>
+                                <p>Known as the "Red Planet," Mars has a thin atmosphere, polar ice caps, and features like volcanoes and canyons.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c5">
+                    <label for="c5" class="card">
+                        <div class="row">
+                            <div class="icon">5</div>
+                            <div class="description">
+                                <h4><a href="link5.html">Jupiter</a></h4>
+                                <p>The largest planet in the solar system, Jupiter is a gas giant with a strong magnetic field and a famous Great Red Spot storm.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c6">
+                    <label for="c6" class="card">
+                        <div class="row">
+                            <div class="icon">6</div>
+                            <div class="description">
+                                <h4><a href="link6.html">Saturn</a></h4>
+                                <p>Renowned for its stunning rings, Saturn is a gas giant with numerous moons and a low density that allows it to float in water.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="radio" name="slide" id="c7">
+                    <label for="c7" class="card">
+                        <div class="row">
+                            <div class="icon">7</div>
+                            <div class="description">
+                                <h4><a href="link7.html">Uranus</a></h4>
+                                <p>An ice giant with a blue color due to methane in its atmosphere, Uranus rotates on its side, leading to extreme seasonal variations.</p>
+                            </div>
+                        </div>
+                    </label>
+                    <!-- <input type="radio" name="slide" id="c8">
+                    <label for="c8" class="card">
+                        <div class="row">
+                            <div class="icon">8</div>
+                            <div class="description">
+                                <h4><a href="link8.html">Image 8</a></h4>
+                                <p>Description for image 8</p>
+                            </div>
+                        </div>
+                    </label> -->
+                </div>
+            </div>
+        </div>
+        <!-- Footer added here -->
+        <footer id="footer" style="background-color: #222; color: #fff; text-align: center; padding: 30px 0; font-size: 14px; position: relative;">
+            <a href="#nav" style="position: absolute; top: 2em; right: 10em; color: #4fa3f7; text-decoration: none; font-size: 1.2em; color: white;">
+                <i class="fa-solid fa-up-long"></i>
+            </a>
+            <p style="margin: 10px 0;">&copy; 2024 Space Wiki. All Rights Reserved.</p>
+            <p style="margin: 10px 0;">Follow us on:</p>
+            <div style="margin: 10px 0;">
+                <a href="#" style="color: #4fa3f7; text-decoration: none; margin: 0 10px;">Twitter</a>
+                <a href="#" style="color: #4fa3f7; text-decoration: none; margin: 0 10px;">Instagram</a>
+                <a href="#" style="color: #4fa3f7; text-decoration: none; margin: 0 10px;">Facebook</a>
+            </div>
+            <p style="margin: 10px 0;">Explore the universe with us!</p>
+        </footer>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <!-- <div id="contact-us-popup" class="modal" style="display:none;">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h1>Contact Us</h1> -->
+            
+            <!-- Contact Form -->
+            <!-- <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div> -->
+
+    <!-- <script>
+        // Modal functionality
+        const modal = document.getElementById('contact-us-popup');
+        const contactUsLink = document.getElementById('contactUsLink');
+        const closeBtn = document.querySelector('.modal .close');
+
+        contactUsLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script> -->
+</body>
+</html>
